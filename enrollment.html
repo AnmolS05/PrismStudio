@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Internship Application – Prism Studios</title>
 
-  <!-- BEAST UI CSS -->
-  <!-- <style>
+  <!-- Styles -->
+  <style>
     * {
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    } -->
+    }
 
     body {
       background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
@@ -96,7 +96,7 @@
       <input type="number" name="contact_number" placeholder="Contact Number" required />
       <input type="text" name="college_university_name" placeholder="College/University Name" required />
       <input type="text" name="branch" placeholder="Branch" required />
-      
+
       <select name="domain" required>
         <option value="">Select Domain</option>
         <option value="Web Development">Web Development</option>
@@ -105,14 +105,14 @@
         <option value="Android Dev">Android Development</option>
         <option value="Data Science">Data Science</option>
       </select>
-      
+
       <select name="internship_duration" required>
         <option value="">Choose Internship Duration</option>
         <option value="1 month">1 Month</option>
         <option value="2 months">2 Months</option>
         <option value="3 months">3 Months</option>
       </select>
-      
+
       <input type="text" name="referral_code" placeholder="Referral Code (Optional)" />
       <button type="submit">Submit Application</button>
     </form>
@@ -121,11 +121,15 @@
   </div>
 
   <!-- Supabase + JS -->
- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script>
-  const supabaseUrl = 'https://fjmuhvuurqjqvnmqxcgq.supabase.co';
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZqbXVodnV1cnFqcXZubXF4Y2dxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4MDM3MzEsImV4cCI6MjA2NTM3OTczMX0.nEUKzAjYi49IawEr36WRva8Vx7HY6cA6YkUOkKB9Ur8'; // 🔥 Replace this with your real Supabase anon key
-  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    window.onerror = (msg, url, line, col, error) => {
+  alert("🔥 JS error: " + msg);
+};
+document.addEventListener('DOMContentLoaded', () => {
+  const supabaseUrl = 'https://hriognbjxmfgnwszjwbs.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhyaW9nbmJqeG1mZ253c3pqd2JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk0MDUwMjcsImV4cCI6MjA2NDk4MTAyN30._B5wb2Mow8DDFv9TjC2wz1-oYgRYLD2bguh3REXdRzg';
+  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
   const form = document.getElementById('applyForm');
   const msgBox = document.getElementById('formMessage');
@@ -136,7 +140,6 @@
 
     const contact = form.contact_number.value.trim();
 
-    // 🔍 Check contact number is 10–11 digits
     if (contact.length < 10 || contact.length > 11) {
       msgBox.innerHTML = `<p class="error">⚠️ Contact number must be between 10–11 digits</p>`;
       return;
@@ -153,7 +156,7 @@
       referral_code: form.referral_code.value || null
     };
 
-    const { error } = await supabase
+    const { error } = await supabaseClient
       .from('applications')
       .insert([data]);
 
@@ -165,7 +168,8 @@
       form.reset();
     }
   });
-</script>
+});
+  </script>
 
 </body>
 </html>
