@@ -4,44 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Prism Studio</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<!-- <script>
+  <div class="menu-toggle" id="menu-toggle"></div>
+ <!--<script>
   if (window.innerWidth < 768) {
     window.location.href = "unsupported.html"; // redirect to a mobile-block page
   }
-</script> -->
-<div id="mobilePopup" class="popup">
-  This website is better on desktop 🖥️
-</div>
+</script>/* -->
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 <body>
-.popup {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  left: 10%;
-  right: 10%;
-  background-color: #222;
-  color: #fff;
-  padding: 15px;
-  text-align: center;
-  border-radius: 8px;
-  z-index: 9999;
-  font-family: sans-serif;
-}
-
-@media (max-width: 768px) {
-  .popup {
-    display: block;
-  }
-}
 
   <nav id="navbar">
     <div class="logo">Prism Studio</div>
-    <div class="menu-toggle" id="menu-toggle"></div>
+    <div class="menu-toggle" id="menu-toggle">
+  <!-- <i class="fas fa-bars"></i> -->
+</div>
+
     <ul>
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#about">About Us</a></li>
@@ -56,8 +38,8 @@
   <header id="home">
     <h1 class="glow-hover">Empowering Businesses, Enabling Futures – Prism Studio</h1>
     <p>At Prism Studio, we build custom software solutions for businesses  and we also open doors for students by providing free, skill-first internships on live projects.</p>
-    <a href="#internship-section" target="_blank" rel="noopener" class="btn">Discover available internships</a>
-    <div class="msme">MSME Certified Organization</div>
+    <a href="#internship-section" target="_blank" rel="noopener" class="btn">Join Our Team</a>
+    <div class="msme"></div>
   </header>
 
   <section id="about">
@@ -446,12 +428,12 @@ Committed to excellence, innovation, and client success, PrismStudio is your tru
     <!-- Contact Info -->
     <div style="flex: 1 1 250px;">
       <h4 style="font-weight: 600; color: #ffffff;">Contact Us</h4>
-      <p style="margin: 12px 0 6px; color: #cfd9e1;">Email: <a href="team.prismstudio@gmail.com" style="color: #66c5ff;">team.prismstudio@gmail.com</a></p>
+      <p style="margin: 12px 0 6px; color: #cfd9e1;">Email: <a href="mailto:contact@prismstudio.in" style="color: #66c5ff;">team.prismstudio@gmail.com</a></p>
       
       <div style="margin-top: 12px; font-size: 1.3rem;">
         <a href="#" style="margin-right: 14px; color: #91a3b0;"><i class="fab fa-instagram"></i></a>
         <a href="#" style="margin-right: 14px; color: #91a3b0;"><i class="fab fa-linkedin-in"></i></a>
-        <a href="mailto:team.prismstudio@gmail.com" style="color: #91a3b0;"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:contact@prismstudio.in" style="color: #91a3b0;"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </div>
@@ -481,6 +463,20 @@ Committed to excellence, innovation, and client success, PrismStudio is your tru
       });
     });
   });
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("menu-toggle");
+    const navbar = document.getElementById("navbar");
+
+    toggle.addEventListener("click", function () {
+      navbar.classList.toggle("active");
+    });
+  });
+</script>
+
+</script>
+
 </script>
 </script>
 </body>
